@@ -1,59 +1,507 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Android Developer Portfolio</title>
-<style>
-    body { 
-        font-family: Arial, sans-serif; 
-        margin: 40px; 
-        background: #fafafa;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohammed Ghabayen | Android Developer</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    .container { max-width: 900px; margin: auto; }
-    h1 { color: #222; }
-    .card {
-        background: #fff;
-        padding: 20px;
-        margin: 20px 0;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
     }
-</style>
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+
+    .logo span {
+      color: #22c55e;
+    }
+
+    nav a {
+      margin-left: 16px;
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+
+    nav a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+      gap: 24px;
+      margin-bottom: 32px;
+      align-items: center;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero-title {
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: #9ca3af;
+      margin-bottom: 16px;
+      max-width: 520px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.12);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      font-size: 0.9rem;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #022c22;
+      font-weight: 600;
+    }
+
+    .btn-ghost {
+      border-color: rgba(148, 163, 184, 0.4);
+      background: transparent;
+      color: #e5e7eb;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero-card {
+      border-radius: 16px;
+      padding: 18px 18px 16px;
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.28), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.18), transparent 60%),
+                  #020617;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .hero-card h2 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+      margin-bottom: 10px;
+    }
+
+    .hero-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .hero-card p {
+      font-size: 0.88rem;
+      color: #d1d5db;
+      margin-bottom: 8px;
+    }
+
+    section {
+      margin-bottom: 32px;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title span {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #9ca3af;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: radial-gradient(circle, rgba(148, 163, 184, 0.8), transparent);
+      opacity: 0.35;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .project {
+      border-radius: 14px;
+      background: #020617;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 14px 14px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.9);
+      border-color: rgba(34, 197, 94, 0.65);
+    }
+
+    .project-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .project-meta {
+      font-size: 0.78rem;
+      color: #9ca3af;
+    }
+
+    .project-desc {
+      font-size: 0.85rem;
+      color: #d1d5db;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .project-link {
+      font-size: 0.78rem;
+      margin-top: 4px;
+      color: #93c5fd;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 800px) {
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .skills-list,
+    .experience-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 8px;
+      font-size: 0.86rem;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 6px 12px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    footer {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      font-size: 0.78rem;
+      color: #9ca3af;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+  </style>
 </head>
+
 <body>
+  <div class="page">
+    <header>
+      <div class="logo">Mohammed Ghabayen <span>// Android Dev</span></div>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-<div class="container">
-    <h1>Mohammed Ghabayen — Android Developer</h1>
-    <p>I build high-quality Android apps using Java, Kotlin, and modern frameworks.</p>
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div>
+          <h1 class="hero-title">Android developer focused on clean, modern apps.</h1>
+          <p class="hero-subtitle">
+            Building Android applications using Java, Kotlin, and modern tools
+            (Jetpack Compose, Material 3, Clean Architecture). Comfortable fixing legacy apps,
+            upgrading SDKs, and delivering production-ready features for clients.
+          </p>
 
-    <div class="card">
-        <h2>Projects</h2>
-        <ul>
-            <li><strong>Mini Casino (Android)</strong> — Blackjack, Roulette, Slots, Texas Hold’em, etc.</li>
-            <li><strong>Free Market App</strong> — Buy & Sell platform, Firebase + modern UI.</li>
-            <li><strong>Quran App</strong> — Clean UI, bookmarking, audio.</li>
-            <li><strong>Video Splitter App</strong> — Updated outdated project to SDK 36.</li>
+          <div class="hero-tags">
+            <span class="tag">Android (Java / Kotlin)</span>
+            <span class="tag">Jetpack Compose</span>
+            <span class="tag">Material Design 3</span>
+            <span class="tag">REST APIs & Firebase</span>
+            <span class="tag">Blockchain / Solidity (learning)</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View my Android projects</a>
+            <a class="btn btn-ghost" href="#contact">Contact me</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h2>Current focus</h2>
+          <h3>Freelance Android development</h3>
+          <p>
+            • Upgrading legacy apps to latest SDKs<br />
+            • Creating custom apps from scratch (design + development)<br />
+            • Publishing and maintaining production builds
+          </p>
+          <p style="margin-top: 8px; font-size: 0.8rem; color:#9ca3af;">
+            Available for remote freelance work and long-term collaborations.
+          </p>
+        </aside>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <h2 class="section-title"><span>Projects</span> Android apps & client work</h2>
+
+        <div class="projects-grid">
+
+          <!-- PROJECT CARD -->
+          <article class="project">
+            <div class="project-title">Mini Casino — Multi-game Android app</div>
+            <div class="project-meta">Personal project · Java / Kotlin · Offline & local logic</div>
+            <p class="project-desc">
+              A collection of casino-style mini games (Blackjack, Roulette, Slots, Texas Hold’em, etc.)
+              built with a modular architecture. Focus on smooth animations, custom UI, and reusable game
+              logic that can be extended with more games later.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Custom UI</span>
+              <span class="tag">Game logic</span>
+              <span class="tag">Animations</span>
+            </div>
+            <!-- Optional links -->
+            <!-- <a class="project-link" href="#" target="_blank">View code on GitHub →</a> -->
+          </article>
+
+          <article class="project">
+            <div class="project-title">Free Market — Buy & Sell App</div>
+            <div class="project-meta">Personal project · Android app</div>
+            <p class="project-desc">
+              Marketplace-style app where users can list items, browse categories, chat with sellers,
+              and manage their posts. Designed with reusable components and clean navigation with focus
+              on performance and simple UX.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Listings</span>
+              <span class="tag">Search & filters</span>
+              <span class="tag">Modern UI</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-title">Quran App — Clean reading experience</div>
+            <div class="project-meta">Personal project · Kotlin</div>
+            <p class="project-desc">
+              Quran reading app with clean, distraction-free UI. Includes bookmarking, navigation between
+              surahs, and planned support for audio recitation. Designed to be fast and minimal while keeping
+              the codebase easy to extend.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Kotlin</span>
+              <span class="tag">Offline-friendly</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-title">Video Splitter — Legacy app upgrade</div>
+            <div class="project-meta">Client project · Maintenance & modernization</div>
+            <p class="project-desc">
+              Took an old Android app with outdated libraries and Play Store errors, updated it to
+              target SDK 36, fixed Gradle configuration, replaced deprecated libraries (including
+              FFmpeg integration) and resolved a 16&nbsp;KB Play Store artifact issue. Delivered a stable,
+              publish-ready build and guided the client through Play Console.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Legacy code</span>
+              <span class="tag">SDK 36</span>
+              <span class="tag">FFmpeg</span>
+              <span class="tag">Google Play</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-title">Smart Contract Demo — Android + Solidity</div>
+            <div class="project-meta">Learning project · Web3 integration</div>
+            <p class="project-desc">
+              Experimented with connecting an Android app to a Solidity smart contract deployed on a
+              local blockchain (Ganache). Used Java on the Android side to interact with the contract
+              (read/write methods) and explored how Web3 can integrate with mobile apps.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Solidity</span>
+              <span class="tag">Web3</span>
+              <span class="tag">Java</span>
+            </div>
+          </article>
+
+          <!-- TEMPLATE for MORE PROJECTS -->
+          <!-- Copy this block, paste below, and edit the content to add new apps -->
+          <!--
+          <article class="project">
+            <div class="project-title">PROJECT TITLE</div>
+            <div class="project-meta">Type of project · Tech stack</div>
+            <p class="project-desc">
+              Short description of what the app does, who it is for, and your role.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Tag 1</span>
+              <span class="tag">Tag 2</span>
+            </div>
+            <a class="project-link" href="#" target="_blank">Play Store / GitHub / APK link →</a>
+          </article>
+          -->
+        </div>
+      </section>
+
+      <!-- SKILLS & EXPERIENCE -->
+      <section id="skills" class="two-col">
+        <div>
+          <h2 class="section-title"><span>Skills</span> What I work with</h2>
+          <ul class="skills-list">
+            <li class="pill">Java · Kotlin</li>
+            <li class="pill">Android SDK · Jetpack</li>
+            <li class="pill">Jetpack Compose · Material 3</li>
+            <li class="pill">Clean Architecture · MVVM</li>
+            <li class="pill">REST APIs · Retrofit</li>
+            <li class="pill">Room · SQLite</li>
+            <li class="pill">Firebase (Auth, Firestore, Storage)</li>
+            <li class="pill">Git · GitHub</li>
+            <li class="pill">Gradle & build tooling</li>
+            <li class="pill">Basic Solidity / Web3 (learning)</li>
+          </ul>
+        </div>
+
+        <div id="experience">
+          <h2 class="section-title"><span>Experience</span> Freelance work</h2>
+          <ul class="experience-list">
+            <li class="pill">
+              Updating and fixing existing Android apps for clients
+              (SDK updates, Gradle errors, Play Store issues).
+            </li>
+            <li class="pill">
+              Building custom apps from scratch, including UI design,
+              architecture, and publishing support.
+            </li>
+            <li class="pill">
+              Working remotely with international clients and delivering
+              clear communication, documentation, and support.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <h2 class="section-title"><span>Contact</span> Let’s work together</h2>
+        <p style="font-size:0.9rem; color:#d1d5db; margin-bottom:10px;">
+          If you want to discuss a project, fix an existing app, or collaborate,
+          feel free to reach out.
+        </p>
+        <ul style="list-style:none; font-size:0.9rem;">
+          <li>Email: <a href="mailto:YOUR_EMAIL_HERE">YOUR_EMAIL_HERE</a></li>
+          <li>GitHub: <a href="https://github.com/spykerrxx" target="_blank">github.com/spykerrxx</a></li>
+          <!-- Add real links when ready -->
+          <li>LinkedIn: <a href="#" target="_blank">Add your LinkedIn link here</a></li>
         </ul>
-    </div>
+      </section>
+    </main>
 
-    <div class="card">
-        <h2>Skills</h2>
-        <ul>
-            <li>Kotlin / Java</li>
-            <li>Jetpack Compose — Material 3</li>
-            <li>Blockchain + Solidity (Learning)</li>
-            <li>Clean Architecture, MVVM, Retrofit, Room</li>
-            <li>Firebase, SQLite, REST APIs</li>
-        </ul>
-    </div>
+    <footer>
+      <span>© <span id="year"></span> Mohammed Ghabayen</span>
+      <span>Built with pure HTML & CSS · Hosted on GitHub Pages</span>
+    </footer>
+  </div>
 
-    <div class="card">
-        <h2>Contact</h2>
-        <p>Email: your-email-here</p>
-        <p>LinkedIn: your-linkedin-here</p>
-    </div>
-</div>
-
+  <script>
+    // Set current year in footer automatically
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
