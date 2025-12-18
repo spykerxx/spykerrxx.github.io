@@ -4,302 +4,440 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mohammed Ghabayen | Android Developer</title>
+  <meta name="description" content="Android developer portfolio — apps, client work, skills, and contact." />
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root{
+      --bg:#0f172a;
+      --panel:#020617;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --line:rgba(148,163,184,.35);
+      --accent:#22c55e;
+      --accent2:#16a34a;
+      --link:#93c5fd;
+      --shadow: 0 18px 45px rgba(0,0,0,.35);
     }
 
-    body {
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html{ scroll-behavior:smooth; }
+    body{
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
     }
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page {
+    .page{
       max-width: 1100px;
       margin: 0 auto;
-      padding: 24px 16px 48px;
+      padding: 16px 16px 48px;
     }
 
-    header {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 32px;
+    /* Top / Sticky nav */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(15,23,42,.7);
+      border-bottom: 1px solid rgba(148,163,184,.18);
     }
-
-    .logo {
-      font-weight: 700;
-      font-size: 1.3rem;
+    .topbar-inner{
+      max-width:1100px;
+      margin:0 auto;
+      padding: 14px 16px;
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
     }
-
-    .logo span {
-      color: #22c55e;
+    .logo{
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing:.2px;
     }
+    .logo span{ color: var(--accent); }
 
-    nav a {
-      margin-left: 16px;
-      font-size: 0.95rem;
-      opacity: 0.85;
-    }
-
-    nav a:hover {
-      opacity: 1;
-      text-decoration: underline;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
-      gap: 24px;
-      margin-bottom: 32px;
-      align-items: center;
-    }
-
-    @media (max-width: 800px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .hero-title {
-      font-size: 2.1rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .hero-subtitle {
-      font-size: 0.98rem;
-      color: #9ca3af;
-      margin-bottom: 16px;
-      max-width: 520px;
-    }
-
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
-
-    .tag {
-      font-size: 0.75rem;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(148, 163, 184, 0.12);
-      border: 1px solid rgba(148, 163, 184, 0.35);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .btn {
-      font-size: 0.9rem;
-      padding: 8px 16px;
+    nav a{
+      margin-left: 14px;
+      font-size: .92rem;
+      color: rgba(229,231,235,.9);
+      opacity: .85;
+      padding: 6px 10px;
       border-radius: 999px;
       border: 1px solid transparent;
-      cursor: pointer;
-      display: inline-flex;
+    }
+    nav a:hover{
+      opacity: 1;
+      border-color: rgba(148,163,184,.25);
+      background: rgba(148,163,184,.08);
+    }
+    nav a.active{
+      opacity: 1;
+      border-color: rgba(34,197,94,.45);
+      background: rgba(34,197,94,.08);
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.25fr);
+      gap: 22px;
+      margin: 22px 0 30px;
       align-items: center;
+    }
+    @media (max-width: 800px){
+      .hero{ grid-template-columns: 1fr; }
+      nav a{ margin-left: 6px; }
+    }
+
+    .hero-title{
+      font-size: clamp(1.75rem, 3vw, 2.3rem);
+      font-weight: 850;
+      margin-bottom: 10px;
+      letter-spacing: -.2px;
+    }
+    .hero-subtitle{
+      font-size: .98rem;
+      color: var(--muted);
+      margin-bottom: 14px;
+      max-width: 560px;
+    }
+
+    .hero-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom: 18px;
+    }
+    .tag{
+      font-size: .75rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(148,163,184,.12);
+      border: 1px solid rgba(148,163,184,.28);
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      align-items:center;
+    }
+    .btn{
+      font-size: .9rem;
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
       gap: 8px;
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
+      user-select:none;
     }
+    .btn:hover{ transform: translateY(-1px); }
+    .btn:active{ transform: translateY(0px); }
 
-    .btn-primary {
-      background: linear-gradient(135deg, #22c55e, #16a34a);
+    .btn-primary{
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
       color: #022c22;
-      font-weight: 600;
+      font-weight: 700;
+      box-shadow: 0 10px 24px rgba(34,197,94,.25);
     }
-
-    .btn-ghost {
-      border-color: rgba(148, 163, 184, 0.4);
+    .btn-ghost{
+      border-color: rgba(148,163,184,.35);
       background: transparent;
-      color: #e5e7eb;
+      color: var(--text);
+    }
+    .btn-small{
+      padding: 7px 12px;
+      font-size: .82rem;
     }
 
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .hero-card {
+    .hero-card{
       border-radius: 16px;
-      padding: 18px 18px 16px;
-      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.28), transparent 55%),
-                  radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.18), transparent 60%),
-                  #020617;
-      border: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 18px;
+      background:
+        radial-gradient(circle at top left, rgba(34,197,94,.28), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(59,130,246,.18), transparent 60%),
+        var(--panel);
+      border: 1px solid rgba(148,163,184,.22);
+      box-shadow: var(--shadow);
     }
-
-    .hero-card h2 {
-      font-size: 0.95rem;
+    .hero-card h2{
+      font-size: .86rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #9ca3af;
+      letter-spacing: .14em;
+      color: var(--muted);
       margin-bottom: 10px;
     }
-
-    .hero-card h3 {
+    .hero-card h3{
       font-size: 1.05rem;
       margin-bottom: 8px;
     }
-
-    .hero-card p {
-      font-size: 0.88rem;
+    .hero-card p{
+      font-size: .88rem;
       color: #d1d5db;
       margin-bottom: 8px;
     }
 
-    section {
-      margin-bottom: 32px;
-    }
+    section{ margin-bottom: 30px; }
 
-    .section-title {
-      font-size: 1.1rem;
+    .section-title{
+      font-size: 1.08rem;
       margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      display:flex;
+      align-items:center;
+      gap: 10px;
     }
-
-    .section-title span {
-      font-size: 0.75rem;
+    .section-title span{
+      font-size: .74rem;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #9ca3af;
+      letter-spacing: .18em;
+      color: var(--muted);
+      white-space: nowrap;
     }
-
-    .section-title::after {
-      content: "";
+    .section-title::after{
+      content:"";
       flex: 1;
       height: 1px;
-      background: radial-gradient(circle, rgba(148, 163, 184, 0.8), transparent);
-      opacity: 0.35;
+      background: radial-gradient(circle, rgba(148,163,184,.8), transparent);
+      opacity: .35;
     }
 
-    .projects-grid {
-      display: grid;
+    /* Projects grid */
+    .projects-grid{
+      display:grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 16px;
     }
-
-    .project {
+    .project{
       border-radius: 14px;
-      background: #020617;
-      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: var(--panel);
+      border: 1px solid var(--line);
       padding: 14px 14px 12px;
-      display: flex;
-      flex-direction: column;
+      display:flex;
+      flex-direction:column;
       gap: 8px;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
     }
-
-    .project:hover {
+    .project:hover{
       transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.9);
-      border-color: rgba(34, 197, 94, 0.65);
+      border-color: rgba(34,197,94,.55);
+      box-shadow: 0 16px 40px rgba(0,0,0,.28);
     }
 
-    .project-title {
-      font-size: 0.98rem;
-      font-weight: 600;
+    .project-title{ font-size: .98rem; font-weight: 750; }
+    .project-meta{ font-size: .78rem; color: var(--muted); }
+    .project-desc{ font-size: .86rem; color: #d1d5db; }
+
+    .project-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 6px;
+      margin-top: 2px;
     }
 
-    .project-meta {
-      font-size: 0.78rem;
-      color: #9ca3af;
+    .project-actions{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      margin-top: 6px;
+      flex-wrap:wrap;
     }
+    .project-link{
+      font-size: .82rem;
+      color: var(--link);
+      opacity: .95;
+    }
+    .project-link:hover{ text-decoration: underline; }
 
-    .project-desc {
-      font-size: 0.85rem;
+    /* Details + screenshots */
+    .details{
+      margin-top: 18px;
+      display:grid;
+      gap: 14px;
+    }
+    .detail-card{
+      border-radius: 16px;
+      background: var(--panel);
+      border: 1px solid rgba(148,163,184,.28);
+      padding: 16px;
+      box-shadow: 0 14px 35px rgba(0,0,0,.22);
+    }
+    .detail-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap: 12px;
+      flex-wrap:wrap;
+      margin-bottom: 8px;
+    }
+    .detail-card h3{
+      font-size: 1.02rem;
+      margin-bottom: 2px;
+    }
+    .detail-card p{
+      font-size: .88rem;
       color: #d1d5db;
     }
 
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 4px;
+    .screenshots-grid{
+      margin-top: 12px;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 10px;
+    }
+    .shot{
+      border-radius: 12px;
+      overflow:hidden;
+      border: 1px solid rgba(148,163,184,.35);
+      background: rgba(148,163,184,.08);
+      cursor: zoom-in;
+      transition: transform .12s ease, border-color .12s ease;
+    }
+    .shot:hover{
+      transform: translateY(-1px);
+      border-color: rgba(34,197,94,.45);
+    }
+    .shot img{
+      width:100%;
+      height: 210px;
+      object-fit: cover;
+    }
+    .shot .cap{
+      padding: 8px 10px;
+      font-size: .78rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(148,163,184,.22);
+      background: rgba(2,6,23,.55);
     }
 
-    .project-link {
-      font-size: 0.78rem;
-      margin-top: 4px;
-      color: #93c5fd;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    /* Skills & Experience */
+    .two-col{
+      display:grid;
+      grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
       gap: 16px;
     }
-
-    @media (max-width: 800px) {
-      .two-col {
-        grid-template-columns: minmax(0, 1fr);
-      }
+    @media (max-width: 800px){
+      .two-col{ grid-template-columns: 1fr; }
     }
 
-    ul {
-      list-style: none;
-    }
-
-    .skills-list,
-    .experience-list {
-      display: grid;
+    ul{ list-style:none; }
+    .skills-list, .experience-list{
+      display:grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 8px;
-      font-size: 0.86rem;
+      font-size: .86rem;
     }
-
-    .pill {
+    .pill{
       border-radius: 999px;
-      padding: 6px 12px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      background: rgba(15, 23, 42, 0.9);
+      padding: 7px 12px;
+      border: 1px solid rgba(148,163,184,.35);
+      background: rgba(15,23,42,.85);
     }
 
-    footer {
+    /* Contact */
+    .contact-card{
+      border-radius: 16px;
+      border: 1px solid rgba(148,163,184,.28);
+      background: rgba(2,6,23,.65);
+      padding: 14px 16px;
+    }
+    .contact-card a{
+      color: var(--link);
+    }
+    .contact-card a:hover{
+      text-decoration: underline;
+    }
+
+    footer{
       margin-top: 16px;
       padding-top: 12px;
-      border-top: 1px solid rgba(148, 163, 184, 0.3);
-      font-size: 0.78rem;
-      color: #9ca3af;
-      display: flex;
-      justify-content: space-between;
+      border-top: 1px solid rgba(148,163,184,.3);
+      font-size: .78rem;
+      color: var(--muted);
+      display:flex;
+      justify-content:space-between;
       gap: 8px;
-      flex-wrap: wrap;
+      flex-wrap:wrap;
+    }
+
+    /* Lightbox */
+    .lightbox{
+      position: fixed;
+      inset: 0;
+      background: rgba(2,6,23,.82);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding: 18px;
+      z-index: 1000;
+    }
+    .lightbox.open{ display:flex; }
+    .lightbox-inner{
+      max-width: 1000px;
+      width: 100%;
+      background: rgba(2,6,23,.9);
+      border: 1px solid rgba(148,163,184,.28);
+      border-radius: 16px;
+      overflow:hidden;
+      box-shadow: var(--shadow);
+    }
+    .lightbox-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(148,163,184,.22);
+      color: var(--muted);
+      font-size: .85rem;
+    }
+    .lightbox-close{
+      cursor:pointer;
+      padding: 6px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(148,163,184,.25);
+      background: rgba(148,163,184,.08);
+      color: var(--text);
+    }
+    .lightbox-img{
+      width: 100%;
+      max-height: 75vh;
+      object-fit: contain;
+      background: #000;
     }
   </style>
 </head>
 
 <body>
-  <div class="page">
-    <header>
+
+  <!-- Sticky header -->
+  <div class="topbar">
+    <div class="topbar-inner">
       <div class="logo">Mohammed Ghabayen <span>// Android Dev</span></div>
       <nav>
         <a href="#projects">Projects</a>
+        <a href="#details">Details</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
       </nav>
-    </header>
+    </div>
+  </div>
+
+  <div class="page">
 
     <main>
       <!-- HERO -->
-      <section class="hero">
+      <section class="hero" id="top">
         <div>
           <h1 class="hero-title">Android developer focused on clean, modern apps.</h1>
           <p class="hero-subtitle">
@@ -317,8 +455,8 @@
           </div>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects">View my Android projects</a>
-            <a class="btn btn-ghost" href="#contact">Contact me</a>
+            <a class="btn btn-primary" href="#projects">View projects</a>
+            <a class="btn btn-ghost" href="#contact">Contact</a>
           </div>
         </div>
 
@@ -330,7 +468,7 @@
             • Creating custom apps from scratch (design + development)<br />
             • Publishing and maintaining production builds
           </p>
-          <p style="margin-top: 8px; font-size: 0.8rem; color:#9ca3af;">
+          <p style="margin-top: 8px; font-size: 0.8rem; color:var(--muted);">
             Available for remote freelance work and long-term collaborations.
           </p>
         </aside>
@@ -342,7 +480,6 @@
 
         <div class="projects-grid">
 
-          <!-- PROJECT CARD -->
           <article class="project">
             <div class="project-title">Mini Casino — Multi-game Android app</div>
             <div class="project-meta">Personal project · Java / Kotlin · Offline & local logic</div>
@@ -356,8 +493,9 @@
               <span class="tag">Game logic</span>
               <span class="tag">Animations</span>
             </div>
-            <!-- Optional links -->
-            <!-- <a class="project-link" href="#" target="_blank">View code on GitHub →</a> -->
+            <div class="project-actions">
+              <a class="btn btn-ghost btn-small" href="#mini-casino">View details</a>
+            </div>
           </article>
 
           <article class="project">
@@ -373,6 +511,9 @@
               <span class="tag">Search & filters</span>
               <span class="tag">Modern UI</span>
             </div>
+            <div class="project-actions">
+              <a class="btn btn-ghost btn-small" href="#free-market">View details</a>
+            </div>
           </article>
 
           <article class="project">
@@ -387,6 +528,9 @@
               <span class="tag">Kotlin</span>
               <span class="tag">Offline-friendly</span>
             </div>
+            <div class="project-actions">
+              <a class="btn btn-ghost btn-small" href="#quran-app">View details</a>
+            </div>
           </article>
 
           <article class="project">
@@ -395,7 +539,7 @@
             <p class="project-desc">
               Took an old Android app with outdated libraries and Play Store errors, updated it to
               target SDK 36, fixed Gradle configuration, replaced deprecated libraries (including
-              FFmpeg integration) and resolved a 16&nbsp;KB Play Store artifact issue. Delivered a stable,
+              FFmpeg integration) and resolved a 16 KB Play Store artifact issue. Delivered a stable,
               publish-ready build and guided the client through Play Console.
             </p>
             <div class="project-tags">
@@ -403,6 +547,9 @@
               <span class="tag">SDK 36</span>
               <span class="tag">FFmpeg</span>
               <span class="tag">Google Play</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-ghost btn-small" href="#video-splitter">View details</a>
             </div>
           </article>
 
@@ -419,24 +566,131 @@
               <span class="tag">Web3</span>
               <span class="tag">Java</span>
             </div>
+            <div class="project-actions">
+              <a class="btn btn-ghost btn-small" href="#smart-contract">View details</a>
+            </div>
           </article>
 
-          <!-- TEMPLATE for MORE PROJECTS -->
-          <!-- Copy this block, paste below, and edit the content to add new apps -->
-          <!--
-          <article class="project">
-            <div class="project-title">PROJECT TITLE</div>
-            <div class="project-meta">Type of project · Tech stack</div>
-            <p class="project-desc">
-              Short description of what the app does, who it is for, and your role.
-            </p>
-            <div class="project-tags">
-              <span class="tag">Tag 1</span>
-              <span class="tag">Tag 2</span>
+        </div>
+      </section>
+
+      <!-- DETAILS -->
+      <section id="details">
+        <h2 class="section-title"><span>Details</span> Browse apps + screenshots</h2>
+
+        <div class="details">
+
+          <!-- MINI CASINO -->
+          <div id="mini-casino" class="detail-card">
+            <div class="detail-head">
+              <div>
+                <h3>Mini Casino</h3>
+                <div class="project-meta">Multi-game Android app · Java / Kotlin</div>
+              </div>
+              <a class="project-link" href="#projects">Back to projects ↑</a>
             </div>
-            <a class="project-link" href="#" target="_blank">Play Store / GitHub / APK link →</a>
-          </article>
-          -->
+            <p>
+              Add screenshots below by uploading images to a folder (example: <b>screenshots/</b>) in your GitHub repo,
+              then set the <code>src</code> to that path.
+            </p>
+
+            <div class="screenshots-grid">
+              <!-- Replace these with your real images -->
+              <div class="shot" data-src="screenshots/minicasino-1.png" data-cap="Mini Casino — Home">
+                <img src="screenshots/minicasino-1.png" alt="Mini Casino screenshot 1">
+                <div class="cap">Mini Casino — Home</div>
+              </div>
+              <div class="shot" data-src="screenshots/minicasino-2.png" data-cap="Mini Casino — Blackjack">
+                <img src="screenshots/minicasino-2.png" alt="Mini Casino screenshot 2">
+                <div class="cap">Mini Casino — Blackjack</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FREE MARKET -->
+          <div id="free-market" class="detail-card">
+            <div class="detail-head">
+              <div>
+                <h3>Free Market</h3>
+                <div class="project-meta">Buy & Sell marketplace · Android</div>
+              </div>
+              <a class="project-link" href="#projects">Back to projects ↑</a>
+            </div>
+            <p>Listings, product details, chat, and posting flows.</p>
+
+            <div class="screenshots-grid">
+              <div class="shot" data-src="screenshots/freemarket-1.png" data-cap="Free Market — Listings">
+                <img src="screenshots/freemarket-1.png" alt="Free Market screenshot 1">
+                <div class="cap">Free Market — Listings</div>
+              </div>
+              <div class="shot" data-src="screenshots/freemarket-2.png" data-cap="Free Market — Item details">
+                <img src="screenshots/freemarket-2.png" alt="Free Market screenshot 2">
+                <div class="cap">Free Market — Item details</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- QURAN APP -->
+          <div id="quran-app" class="detail-card">
+            <div class="detail-head">
+              <div>
+                <h3>Quran App</h3>
+                <div class="project-meta">Clean reading experience · Kotlin</div>
+              </div>
+              <a class="project-link" href="#projects">Back to projects ↑</a>
+            </div>
+            <p>Reading view, surah list, bookmarks (add screenshots below).</p>
+
+            <div class="screenshots-grid">
+              <div class="shot" data-src="screenshots/quran-1.png" data-cap="Quran — Reading view">
+                <img src="screenshots/quran-1.png" alt="Quran screenshot 1">
+                <div class="cap">Quran — Reading view</div>
+              </div>
+              <div class="shot" data-src="screenshots/quran-2.png" data-cap="Quran — Surah list">
+                <img src="screenshots/quran-2.png" alt="Quran screenshot 2">
+                <div class="cap">Quran — Surah list</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- VIDEO SPLITTER -->
+          <div id="video-splitter" class="detail-card">
+            <div class="detail-head">
+              <div>
+                <h3>Video Splitter</h3>
+                <div class="project-meta">Legacy upgrade · Google Play fixes · SDK 36</div>
+              </div>
+              <a class="project-link" href="#projects">Back to projects ↑</a>
+            </div>
+            <p>Modernization, dependency updates, Play Console publish readiness.</p>
+
+            <div class="screenshots-grid">
+              <div class="shot" data-src="screenshots/videosplitter-1.png" data-cap="Video Splitter — Main screen">
+                <img src="screenshots/videosplitter-1.png" alt="Video Splitter screenshot 1">
+                <div class="cap">Video Splitter — Main screen</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SMART CONTRACT -->
+          <div id="smart-contract" class="detail-card">
+            <div class="detail-head">
+              <div>
+                <h3>Smart Contract Demo</h3>
+                <div class="project-meta">Android + Solidity · Web3 learning</div>
+              </div>
+              <a class="project-link" href="#projects">Back to projects ↑</a>
+            </div>
+            <p>Android UI calling Solidity methods (read/write) via Web3 stack.</p>
+
+            <div class="screenshots-grid">
+              <div class="shot" data-src="screenshots/smart-1.png" data-cap="Smart Contract — Interaction screen">
+                <img src="screenshots/smart-1.png" alt="Smart Contract screenshot 1">
+                <div class="cap">Smart Contract — Interaction screen</div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -461,18 +715,9 @@
         <div id="experience">
           <h2 class="section-title"><span>Experience</span> Freelance work</h2>
           <ul class="experience-list">
-            <li class="pill">
-              Updating and fixing existing Android apps for clients
-              (SDK updates, Gradle errors, Play Store issues).
-            </li>
-            <li class="pill">
-              Building custom apps from scratch, including UI design,
-              architecture, and publishing support.
-            </li>
-            <li class="pill">
-              Working remotely with international clients and delivering
-              clear communication, documentation, and support.
-            </li>
+            <li class="pill">Updating and fixing existing Android apps (SDK, Gradle, Play issues).</li>
+            <li class="pill">Building custom apps from scratch (architecture, UI, publishing).</li>
+            <li class="pill">Remote work with international clients and clear communication.</li>
           </ul>
         </div>
       </section>
@@ -480,16 +725,17 @@
       <!-- CONTACT -->
       <section id="contact">
         <h2 class="section-title"><span>Contact</span> Let’s work together</h2>
-        <p style="font-size:0.9rem; color:#d1d5db; margin-bottom:10px;">
-          If you want to discuss a project, fix an existing app, or collaborate,
-          feel free to reach out.
-        </p>
-        <ul style="list-style:none; font-size:0.9rem;">
-          <li>Email: <a href="mailto:mohammedgh30@gmail.com">mohammedgh30@gmail.com</a></li>
-          <li>GitHub: <a href="https://github.com/spykerrxx" target="_blank">github.com/spykerrxx</a></li>
-          <!-- Add real links when ready -->
-          <li>LinkedIn: <a href="#" target="_blank">https://www.linkedin.com/in/mohammed-gh-064943142/?skipRedirect=true</a></li>
-        </ul>
+
+        <div class="contact-card">
+          <p style="font-size:.92rem; color:#d1d5db; margin-bottom:10px;">
+            Projects, fixes, or collaborations — messages are welcome.
+          </p>
+          <ul style="list-style:none; font-size:0.92rem; display:grid; gap:6px;">
+            <li>Email: <a href="mailto:mohammedgh30@gmail.com">mohammedgh30@gmail.com</a></li>
+            <li>GitHub: <a href="https://github.com/spykerrxx" target="_blank" rel="noopener">github.com/spykerrxx</a></li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/mohammed-gh-064943142/" target="_blank" rel="noopener">linkedin.com/in/mohammed-gh-064943142</a></li>
+          </ul>
+        </div>
       </section>
     </main>
 
@@ -499,9 +745,69 @@
     </footer>
   </div>
 
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-inner">
+      <div class="lightbox-top">
+        <div id="lightboxCap">Screenshot</div>
+        <button class="lightbox-close" id="lightboxClose">Close</button>
+      </div>
+      <img class="lightbox-img" id="lightboxImg" alt="Screenshot preview" />
+    </div>
+  </div>
+
   <script>
-    // Set current year in footer automatically
+    // Footer year
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Active nav highlight
+    const navLinks = Array.from(document.querySelectorAll("nav a"));
+    const sections = navLinks
+      .map(a => document.querySelector(a.getAttribute("href")))
+      .filter(Boolean);
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(a => a.classList.remove("active"));
+        const id = "#" + entry.target.id;
+        const link = navLinks.find(a => a.getAttribute("href") === id);
+        if (link) link.classList.add("active");
+      });
+    }, { rootMargin: "-55% 0px -40% 0px", threshold: 0.01 });
+
+    sections.forEach(s => io.observe(s));
+
+    // Lightbox for screenshots
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxCap = document.getElementById("lightboxCap");
+    const closeBtn = document.getElementById("lightboxClose");
+
+    document.querySelectorAll(".shot").forEach(el => {
+      el.addEventListener("click", () => {
+        const src = el.getAttribute("data-src");
+        const cap = el.getAttribute("data-cap") || "Screenshot";
+        lightboxImg.src = src;
+        lightboxCap.textContent = cap;
+        lightbox.classList.add("open");
+        lightbox.setAttribute("aria-hidden", "false");
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImg.src = "";
+    }
+
+    closeBtn.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeLightbox();
+    });
   </script>
 </body>
 </html>
