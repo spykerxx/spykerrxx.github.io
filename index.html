@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mohammed Ghabayen | Android Developer</title>
-  <meta name="description" content="Android developer portfolio — apps, client work, skills, and contact." />
+  <meta name="description" content="Android developer portfolio — apps, projects, skills, and contact." />
 
   <style>
     :root{
@@ -18,7 +18,6 @@
       --link:#93c5fd;
       --shadow: 0 18px 45px rgba(0,0,0,.35);
     }
-
     *{ box-sizing:border-box; margin:0; padding:0; }
     html{ scroll-behavior:smooth; }
     body{
@@ -36,7 +35,6 @@
       padding: 16px 16px 48px;
     }
 
-    /* Top / Sticky nav */
     .topbar{
       position: sticky;
       top: 0;
@@ -82,7 +80,6 @@
       background: rgba(34,197,94,.08);
     }
 
-    /* Hero */
     .hero{
       display:grid;
       grid-template-columns: minmax(0, 2fr) minmax(0, 1.25fr);
@@ -210,7 +207,6 @@
       opacity: .35;
     }
 
-    /* Projects grid */
     .projects-grid{
       display:grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -232,7 +228,6 @@
       border-color: rgba(34,197,94,.55);
       box-shadow: 0 16px 40px rgba(0,0,0,.28);
     }
-
     .project-title{ font-size: .98rem; font-weight: 750; }
     .project-meta{ font-size: .78rem; color: var(--muted); }
     .project-desc{ font-size: .86rem; color: #d1d5db; }
@@ -251,19 +246,8 @@
       margin-top: 6px;
       flex-wrap:wrap;
     }
-    .project-link{
-      font-size: .82rem;
-      color: var(--link);
-      opacity: .95;
-    }
-    .project-link:hover{ text-decoration: underline; }
 
-    /* Details + screenshots */
-    .details{
-      margin-top: 18px;
-      display:grid;
-      gap: 14px;
-    }
+    .details{ margin-top: 18px; display:grid; gap: 14px; }
     .detail-card{
       border-radius: 16px;
       background: var(--panel);
@@ -279,14 +263,15 @@
       flex-wrap:wrap;
       margin-bottom: 8px;
     }
-    .detail-card h3{
-      font-size: 1.02rem;
-      margin-bottom: 2px;
+    .detail-card h3{ font-size: 1.02rem; margin-bottom: 2px; }
+    .detail-card p{ font-size: .88rem; color: #d1d5db; }
+
+    .project-link{
+      font-size: .82rem;
+      color: var(--link);
+      opacity: .95;
     }
-    .detail-card p{
-      font-size: .88rem;
-      color: #d1d5db;
-    }
+    .project-link:hover{ text-decoration: underline; }
 
     .screenshots-grid{
       margin-top: 12px;
@@ -319,7 +304,6 @@
       background: rgba(2,6,23,.55);
     }
 
-    /* Skills & Experience */
     .two-col{
       display:grid;
       grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
@@ -343,19 +327,14 @@
       background: rgba(15,23,42,.85);
     }
 
-    /* Contact */
     .contact-card{
       border-radius: 16px;
       border: 1px solid rgba(148,163,184,.28);
       background: rgba(2,6,23,.65);
       padding: 14px 16px;
     }
-    .contact-card a{
-      color: var(--link);
-    }
-    .contact-card a:hover{
-      text-decoration: underline;
-    }
+    .contact-card a{ color: var(--link); }
+    .contact-card a:hover{ text-decoration: underline; }
 
     footer{
       margin-top: 16px;
@@ -369,7 +348,6 @@
       flex-wrap:wrap;
     }
 
-    /* Lightbox */
     .lightbox{
       position: fixed;
       inset: 0;
@@ -418,8 +396,6 @@
 </head>
 
 <body>
-
-  <!-- Sticky header -->
   <div class="topbar">
     <div class="topbar-inner">
       <div class="logo">Mohammed Ghabayen <span>// Android Dev</span></div>
@@ -434,24 +410,22 @@
   </div>
 
   <div class="page">
-
     <main>
-      <!-- HERO -->
       <section class="hero" id="top">
         <div>
           <h1 class="hero-title">Android developer focused on clean, modern apps.</h1>
           <p class="hero-subtitle">
             Building Android applications using Java, Kotlin, and modern tools
             (Jetpack Compose, Material 3, Clean Architecture). Comfortable fixing legacy apps,
-            upgrading SDKs, and delivering production-ready features for clients.
+            upgrading SDKs, and delivering production-ready features.
           </p>
 
           <div class="hero-tags">
             <span class="tag">Android (Java / Kotlin)</span>
             <span class="tag">Jetpack Compose</span>
             <span class="tag">Material Design 3</span>
-            <span class="tag">REST APIs & Firebase</span>
-            <span class="tag">Blockchain / Solidity (learning)</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">Firebase</span>
           </div>
 
           <div class="hero-actions">
@@ -462,36 +436,33 @@
 
         <aside class="hero-card">
           <h2>Current focus</h2>
-          <h3>Freelance Android development</h3>
+          <h3>Android apps & product-ready delivery</h3>
           <p>
-            • Upgrading legacy apps to latest SDKs<br />
-            • Creating custom apps from scratch (design + development)<br />
+            • Building apps from scratch (UI + architecture)<br />
+            • Managing state, navigation, and data layers<br />
             • Publishing and maintaining production builds
           </p>
           <p style="margin-top: 8px; font-size: 0.8rem; color:var(--muted);">
-            Available for remote freelance work and long-term collaborations.
+            Remote freelance work and collaborations are welcomed.
           </p>
         </aside>
       </section>
 
       <!-- PROJECTS -->
       <section id="projects">
-        <h2 class="section-title"><span>Projects</span> Android apps & client work</h2>
+        <h2 class="section-title"><span>Projects</span> Apps built & maintained</h2>
 
         <div class="projects-grid">
 
           <article class="project">
             <div class="project-title">Mini Casino — Multi-game Android app</div>
-            <div class="project-meta">Personal project · Java / Kotlin · Offline & local logic</div>
+            <div class="project-meta">Personal project · Java / Kotlin · Offline logic</div>
             <p class="project-desc">
               A collection of casino-style mini games (Blackjack, Roulette, Slots, Texas Hold’em, etc.)
-              built with a modular architecture. Focus on smooth animations, custom UI, and reusable game
-              logic that can be extended with more games later.
+              with modular architecture, smooth animations, and reusable game logic.
             </p>
             <div class="project-tags">
-              <span class="tag">Custom UI</span>
-              <span class="tag">Game logic</span>
-              <span class="tag">Animations</span>
+              <span class="tag">Custom UI</span><span class="tag">Animations</span><span class="tag">Game logic</span>
             </div>
             <div class="project-actions">
               <a class="btn btn-ghost btn-small" href="#mini-casino">View details</a>
@@ -499,75 +470,107 @@
           </article>
 
           <article class="project">
-            <div class="project-title">Free Market — Buy & Sell App</div>
-            <div class="project-meta">Personal project · Android app</div>
+            <div class="project-title">Pharmacies App — Nearby pharmacies & info</div>
+            <div class="project-meta">Android app · Location & listings</div>
             <p class="project-desc">
-              Marketplace-style app where users can list items, browse categories, chat with sellers,
-              and manage their posts. Designed with reusable components and clean navigation with focus
-              on performance and simple UX.
+              Pharmacy listing experience with search/filtering and fast access to details.
+              Built for clarity and quick actions.
             </p>
             <div class="project-tags">
-              <span class="tag">Listings</span>
-              <span class="tag">Search & filters</span>
-              <span class="tag">Modern UI</span>
+              <span class="tag">Lists</span><span class="tag">Search</span><span class="tag">Maps</span>
             </div>
             <div class="project-actions">
-              <a class="btn btn-ghost btn-small" href="#free-market">View details</a>
+              <a class="btn btn-ghost btn-small" href="#pharmacies">View details</a>
             </div>
           </article>
 
           <article class="project">
-            <div class="project-title">Quran App — Clean reading experience</div>
-            <div class="project-meta">Personal project · Kotlin</div>
+            <div class="project-title">Movies Explorer — Browse & discover movies</div>
+            <div class="project-meta">Android app · APIs & modern UI</div>
             <p class="project-desc">
-              Quran reading app with clean, distraction-free UI. Includes bookmarking, navigation between
-              surahs, and planned support for audio recitation. Designed to be fast and minimal while keeping
-              the codebase easy to extend.
+              Movie discovery app with categories, search, and a clean details screen.
+              Focus on performance and UI polish.
             </p>
             <div class="project-tags">
-              <span class="tag">Kotlin</span>
-              <span class="tag">Offline-friendly</span>
+              <span class="tag">REST API</span><span class="tag">UI</span><span class="tag">Caching</span>
             </div>
             <div class="project-actions">
-              <a class="btn btn-ghost btn-small" href="#quran-app">View details</a>
+              <a class="btn btn-ghost btn-small" href="#movies">View details</a>
             </div>
           </article>
 
           <article class="project">
-            <div class="project-title">Video Splitter — Legacy app upgrade</div>
-            <div class="project-meta">Client project · Maintenance & modernization</div>
+            <div class="project-title">Chat App — Real-time messaging</div>
+            <div class="project-meta">Android app · Messaging & user flows</div>
             <p class="project-desc">
-              Took an old Android app with outdated libraries and Play Store errors, updated it to
-              target SDK 36, fixed Gradle configuration, replaced deprecated libraries (including
-              FFmpeg integration) and resolved a 16 KB Play Store artifact issue. Delivered a stable,
-              publish-ready build and guided the client through Play Console.
+              Chat experience with conversations list, message threads, and user-friendly UX.
+              Built with clean architecture foundations.
             </p>
             <div class="project-tags">
-              <span class="tag">Legacy code</span>
-              <span class="tag">SDK 36</span>
-              <span class="tag">FFmpeg</span>
-              <span class="tag">Google Play</span>
+              <span class="tag">Realtime</span><span class="tag">Auth</span><span class="tag">UX</span>
             </div>
             <div class="project-actions">
-              <a class="btn btn-ghost btn-small" href="#video-splitter">View details</a>
+              <a class="btn btn-ghost btn-small" href="#chat">View details</a>
             </div>
           </article>
 
           <article class="project">
-            <div class="project-title">Smart Contract Demo — Android + Solidity</div>
-            <div class="project-meta">Learning project · Web3 integration</div>
+            <div class="project-title">Events Manager — Create & track events</div>
+            <div class="project-meta">Android app · CRUD & scheduling</div>
             <p class="project-desc">
-              Experimented with connecting an Android app to a Solidity smart contract deployed on a
-              local blockchain (Ganache). Used Java on the Android side to interact with the contract
-              (read/write methods) and explored how Web3 can integrate with mobile apps.
+              Event planning and management with structured screens for creating, editing,
+              and tracking events in an organized way.
             </p>
             <div class="project-tags">
-              <span class="tag">Solidity</span>
-              <span class="tag">Web3</span>
-              <span class="tag">Java</span>
+              <span class="tag">CRUD</span><span class="tag">Calendar</span><span class="tag">Local DB</span>
             </div>
             <div class="project-actions">
-              <a class="btn btn-ghost btn-small" href="#smart-contract">View details</a>
+              <a class="btn btn-ghost btn-small" href="#events">View details</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-title">Currency Exchange — Rates & conversion</div>
+            <div class="project-meta">Android app · Conversion & formatting</div>
+            <p class="project-desc">
+              Currency conversion experience with clean inputs, instant results,
+              and a simple UI designed for speed.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Rates</span><span class="tag">Calculator</span><span class="tag">UX</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-ghost btn-small" href="#currency">View details</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-title">Hotel Reservation — Booking flow</div>
+            <div class="project-meta">Android app · Search & reservations</div>
+            <p class="project-desc">
+              Hotel browsing, room details, and reservation flow with clean forms and
+              clear UI states.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Forms</span><span class="tag">Search</span><span class="tag">Flow</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-ghost btn-small" href="#hotel">View details</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-title">Jewelry Stores Management — Inventory & sales</div>
+            <div class="project-meta">Android app · Business management</div>
+            <p class="project-desc">
+              Management app for jewelry stores including products, stock tracking,
+              and organized operations screens.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Inventory</span><span class="tag">Management</span><span class="tag">Reports</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-ghost btn-small" href="#jewelry">View details</a>
             </div>
           </article>
 
@@ -580,7 +583,6 @@
 
         <div class="details">
 
-          <!-- MINI CASINO -->
           <div id="mini-casino" class="detail-card">
             <div class="detail-head">
               <div>
@@ -589,104 +591,162 @@
               </div>
               <a class="project-link" href="#projects">Back to projects ↑</a>
             </div>
-            <p>
-              Add screenshots below by uploading images to a folder (example: <b>screenshots/</b>) in your GitHub repo,
-              then set the <code>src</code> to that path.
-            </p>
-
+            <p>Upload screenshots to <b>screenshots/</b> then update the image names below.</p>
             <div class="screenshots-grid">
-              <!-- Replace these with your real images -->
               <div class="shot" data-src="screenshots/minicasino-1.png" data-cap="Mini Casino — Home">
                 <img src="screenshots/minicasino-1.png" alt="Mini Casino screenshot 1">
                 <div class="cap">Mini Casino — Home</div>
               </div>
-              <div class="shot" data-src="screenshots/minicasino-2.png" data-cap="Mini Casino — Blackjack">
+              <div class="shot" data-src="screenshots/minicasino-2.png" data-cap="Mini Casino — Game screen">
                 <img src="screenshots/minicasino-2.png" alt="Mini Casino screenshot 2">
-                <div class="cap">Mini Casino — Blackjack</div>
+                <div class="cap">Mini Casino — Game screen</div>
               </div>
             </div>
           </div>
 
-          <!-- FREE MARKET -->
-          <div id="free-market" class="detail-card">
+          <div id="pharmacies" class="detail-card">
             <div class="detail-head">
               <div>
-                <h3>Free Market</h3>
-                <div class="project-meta">Buy & Sell marketplace · Android</div>
+                <h3>Pharmacies App</h3>
+                <div class="project-meta">Nearby pharmacies · Listings · Search</div>
               </div>
               <a class="project-link" href="#projects">Back to projects ↑</a>
             </div>
-            <p>Listings, product details, chat, and posting flows.</p>
-
+            <p>Add screenshots for listing, details, and map screens.</p>
             <div class="screenshots-grid">
-              <div class="shot" data-src="screenshots/freemarket-1.png" data-cap="Free Market — Listings">
-                <img src="screenshots/freemarket-1.png" alt="Free Market screenshot 1">
-                <div class="cap">Free Market — Listings</div>
+              <div class="shot" data-src="screenshots/pharmacies-1.png" data-cap="Pharmacies — List">
+                <img src="screenshots/pharmacies-1.png" alt="Pharmacies screenshot 1">
+                <div class="cap">Pharmacies — List</div>
               </div>
-              <div class="shot" data-src="screenshots/freemarket-2.png" data-cap="Free Market — Item details">
-                <img src="screenshots/freemarket-2.png" alt="Free Market screenshot 2">
-                <div class="cap">Free Market — Item details</div>
+              <div class="shot" data-src="screenshots/pharmacies-2.png" data-cap="Pharmacies — Details">
+                <img src="screenshots/pharmacies-2.png" alt="Pharmacies screenshot 2">
+                <div class="cap">Pharmacies — Details</div>
               </div>
             </div>
           </div>
 
-          <!-- QURAN APP -->
-          <div id="quran-app" class="detail-card">
+          <div id="movies" class="detail-card">
             <div class="detail-head">
               <div>
-                <h3>Quran App</h3>
-                <div class="project-meta">Clean reading experience · Kotlin</div>
+                <h3>Movies Explorer</h3>
+                <div class="project-meta">Movie discovery · API · Modern UI</div>
               </div>
               <a class="project-link" href="#projects">Back to projects ↑</a>
             </div>
-            <p>Reading view, surah list, bookmarks (add screenshots below).</p>
-
+            <p>Add screenshots for home, categories, details, and search.</p>
             <div class="screenshots-grid">
-              <div class="shot" data-src="screenshots/quran-1.png" data-cap="Quran — Reading view">
-                <img src="screenshots/quran-1.png" alt="Quran screenshot 1">
-                <div class="cap">Quran — Reading view</div>
+              <div class="shot" data-src="screenshots/movies-1.png" data-cap="Movies — Home">
+                <img src="screenshots/movies-1.png" alt="Movies screenshot 1">
+                <div class="cap">Movies — Home</div>
               </div>
-              <div class="shot" data-src="screenshots/quran-2.png" data-cap="Quran — Surah list">
-                <img src="screenshots/quran-2.png" alt="Quran screenshot 2">
-                <div class="cap">Quran — Surah list</div>
+              <div class="shot" data-src="screenshots/movies-2.png" data-cap="Movies — Details">
+                <img src="screenshots/movies-2.png" alt="Movies screenshot 2">
+                <div class="cap">Movies — Details</div>
               </div>
             </div>
           </div>
 
-          <!-- VIDEO SPLITTER -->
-          <div id="video-splitter" class="detail-card">
+          <div id="chat" class="detail-card">
             <div class="detail-head">
               <div>
-                <h3>Video Splitter</h3>
-                <div class="project-meta">Legacy upgrade · Google Play fixes · SDK 36</div>
+                <h3>Chat App</h3>
+                <div class="project-meta">Messaging · Realtime · UX</div>
               </div>
               <a class="project-link" href="#projects">Back to projects ↑</a>
             </div>
-            <p>Modernization, dependency updates, Play Console publish readiness.</p>
-
+            <p>Add screenshots for chats list, messages screen, and profile.</p>
             <div class="screenshots-grid">
-              <div class="shot" data-src="screenshots/videosplitter-1.png" data-cap="Video Splitter — Main screen">
-                <img src="screenshots/videosplitter-1.png" alt="Video Splitter screenshot 1">
-                <div class="cap">Video Splitter — Main screen</div>
+              <div class="shot" data-src="screenshots/chat-1.png" data-cap="Chat — Conversations">
+                <img src="screenshots/chat-1.png" alt="Chat screenshot 1">
+                <div class="cap">Chat — Conversations</div>
+              </div>
+              <div class="shot" data-src="screenshots/chat-2.png" data-cap="Chat — Messages">
+                <img src="screenshots/chat-2.png" alt="Chat screenshot 2">
+                <div class="cap">Chat — Messages</div>
               </div>
             </div>
           </div>
 
-          <!-- SMART CONTRACT -->
-          <div id="smart-contract" class="detail-card">
+          <div id="events" class="detail-card">
             <div class="detail-head">
               <div>
-                <h3>Smart Contract Demo</h3>
-                <div class="project-meta">Android + Solidity · Web3 learning</div>
+                <h3>Events Manager</h3>
+                <div class="project-meta">Create & track events · CRUD</div>
               </div>
               <a class="project-link" href="#projects">Back to projects ↑</a>
             </div>
-            <p>Android UI calling Solidity methods (read/write) via Web3 stack.</p>
-
+            <p>Add screenshots for event list, create/edit, and event details.</p>
             <div class="screenshots-grid">
-              <div class="shot" data-src="screenshots/smart-1.png" data-cap="Smart Contract — Interaction screen">
-                <img src="screenshots/smart-1.png" alt="Smart Contract screenshot 1">
-                <div class="cap">Smart Contract — Interaction screen</div>
+              <div class="shot" data-src="screenshots/events-1.png" data-cap="Events — List">
+                <img src="screenshots/events-1.png" alt="Events screenshot 1">
+                <div class="cap">Events — List</div>
+              </div>
+              <div class="shot" data-src="screenshots/events-2.png" data-cap="Events — Create">
+                <img src="screenshots/events-2.png" alt="Events screenshot 2">
+                <div class="cap">Events — Create</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="currency" class="detail-card">
+            <div class="detail-head">
+              <div>
+                <h3>Currency Exchange</h3>
+                <div class="project-meta">Rates · Conversion · Calculator</div>
+              </div>
+              <a class="project-link" href="#projects">Back to projects ↑</a>
+            </div>
+            <p>Add screenshots for conversion screen and rates list.</p>
+            <div class="screenshots-grid">
+              <div class="shot" data-src="screenshots/currency-1.png" data-cap="Currency — Converter">
+                <img src="screenshots/currency-1.png" alt="Currency screenshot 1">
+                <div class="cap">Currency — Converter</div>
+              </div>
+              <div class="shot" data-src="screenshots/currency-2.png" data-cap="Currency — Rates">
+                <img src="screenshots/currency-2.png" alt="Currency screenshot 2">
+                <div class="cap">Currency — Rates</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="hotel" class="detail-card">
+            <div class="detail-head">
+              <div>
+                <h3>Hotel Reservation</h3>
+                <div class="project-meta">Search · Details · Booking flow</div>
+              </div>
+              <a class="project-link" href="#projects">Back to projects ↑</a>
+            </div>
+            <p>Add screenshots for hotel list, hotel details, and booking form.</p>
+            <div class="screenshots-grid">
+              <div class="shot" data-src="screenshots/hotel-1.png" data-cap="Hotel — List">
+                <img src="screenshots/hotel-1.png" alt="Hotel screenshot 1">
+                <div class="cap">Hotel — List</div>
+              </div>
+              <div class="shot" data-src="screenshots/hotel-2.png" data-cap="Hotel — Booking">
+                <img src="screenshots/hotel-2.png" alt="Hotel screenshot 2">
+                <div class="cap">Hotel — Booking</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="jewelry" class="detail-card">
+            <div class="detail-head">
+              <div>
+                <h3>Jewelry Stores Management</h3>
+                <div class="project-meta">Inventory · Operations · Reports</div>
+              </div>
+              <a class="project-link" href="#projects">Back to projects ↑</a>
+            </div>
+            <p>Add screenshots for products, inventory, sales, and reports screens.</p>
+            <div class="screenshots-grid">
+              <div class="shot" data-src="screenshots/jewelry-1.png" data-cap="Jewelry — Dashboard">
+                <img src="screenshots/jewelry-1.png" alt="Jewelry screenshot 1">
+                <div class="cap">Jewelry — Dashboard</div>
+              </div>
+              <div class="shot" data-src="screenshots/jewelry-2.png" data-cap="Jewelry — Inventory">
+                <img src="screenshots/jewelry-2.png" alt="Jewelry screenshot 2">
+                <div class="cap">Jewelry — Inventory</div>
               </div>
             </div>
           </div>
@@ -708,16 +768,15 @@
             <li class="pill">Firebase (Auth, Firestore, Storage)</li>
             <li class="pill">Git · GitHub</li>
             <li class="pill">Gradle & build tooling</li>
-            <li class="pill">Basic Solidity / Web3 (learning)</li>
           </ul>
         </div>
 
         <div id="experience">
           <h2 class="section-title"><span>Experience</span> Freelance work</h2>
           <ul class="experience-list">
-            <li class="pill">Updating and fixing existing Android apps (SDK, Gradle, Play issues).</li>
-            <li class="pill">Building custom apps from scratch (architecture, UI, publishing).</li>
-            <li class="pill">Remote work with international clients and clear communication.</li>
+            <li class="pill">Building Android apps from scratch (architecture + UI).</li>
+            <li class="pill">Fixing and upgrading existing Android apps (SDK, Gradle, publishing).</li>
+            <li class="pill">Remote collaboration and clear delivery.</li>
           </ul>
         </div>
       </section>
@@ -725,11 +784,7 @@
       <!-- CONTACT -->
       <section id="contact">
         <h2 class="section-title"><span>Contact</span> Let’s work together</h2>
-
         <div class="contact-card">
-          <p style="font-size:.92rem; color:#d1d5db; margin-bottom:10px;">
-            Projects, fixes, or collaborations — messages are welcome.
-          </p>
           <ul style="list-style:none; font-size:0.92rem; display:grid; gap:6px;">
             <li>Email: <a href="mailto:mohammedgh30@gmail.com">mohammedgh30@gmail.com</a></li>
             <li>GitHub: <a href="https://github.com/spykerrxx" target="_blank" rel="noopener">github.com/spykerrxx</a></li>
@@ -784,30 +839,30 @@
     const lightboxCap = document.getElementById("lightboxCap");
     const closeBtn = document.getElementById("lightboxClose");
 
-    document.querySelectorAll(".shot").forEach(el => {
-      el.addEventListener("click", () => {
-        const src = el.getAttribute("data-src");
-        const cap = el.getAttribute("data-cap") || "Screenshot";
-        lightboxImg.src = src;
-        lightboxCap.textContent = cap;
-        lightbox.classList.add("open");
-        lightbox.setAttribute("aria-hidden", "false");
+    function attachShots(){
+      document.querySelectorAll(".shot").forEach(el => {
+        if (el.dataset.bound === "1") return;
+        el.dataset.bound = "1";
+        el.addEventListener("click", () => {
+          const src = el.getAttribute("data-src");
+          const cap = el.getAttribute("data-cap") || "Screenshot";
+          lightboxImg.src = src;
+          lightboxCap.textContent = cap;
+          lightbox.classList.add("open");
+          lightbox.setAttribute("aria-hidden", "false");
+        });
       });
-    });
+    }
+    attachShots();
 
     function closeLightbox() {
       lightbox.classList.remove("open");
       lightbox.setAttribute("aria-hidden", "true");
       lightboxImg.src = "";
     }
-
     closeBtn.addEventListener("click", closeLightbox);
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) closeLightbox();
-    });
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeLightbox();
-    });
+    lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+    window.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
   </script>
 </body>
 </html>
